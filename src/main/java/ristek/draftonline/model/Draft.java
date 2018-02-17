@@ -1,5 +1,7 @@
 package ristek.draftonline.model;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,12 +9,14 @@ import javax.persistence.Id;
 
 @Entity
 public class Draft {
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Id @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
-    private String sender;
-    private String receiver;
-    private String body;
+
+    @Length(min = 1) private String sender;
+
+    @Length(min = 1) private String receiver;
+
+    @Length(min = 1) private String body;
 
     public Draft(){}
     public Draft(String sender, String receiver, String body){
