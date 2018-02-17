@@ -4,7 +4,7 @@ By: Muhammad Indra Ramadhan / 1706028695
 https://draft-online.herokuapp.com/
 
 1. Requirement: JDK8, Gradle
-2. mysql> CREATE DATABASE draft_online
+2. mysql> CREATE DATABASE draft_online; 
    for config (username and password) : src\main\resources\application.properties
 3. run -> $ gradle bootRun
 4. open localhost:8080 :)
