@@ -124,6 +124,7 @@ function searchDraft(){
 
 function getNextDraft(){
     $("#getNextDraft").html("loading..");
+    $("#getNextDraft").prop("disabled", true);
     $.ajax({
         type: "json",
         method: "GET",
@@ -137,8 +138,14 @@ function getNextDraft(){
                 minId = item.id;
             });
             $("#getNextDraft").html("Load more..");
+    		$("#getNextDraft").prop("disabled", false);
             if(minId <= 1)$("#getNextDraft").hide();
             else $("#getNextDraft").show();
+        },
+        error: () => {
+        	notifError("Error to load data");
+            $("#getNextDraft").html("Load more..");
+    		$("#getNextDraft").prop("disabled", false);
         }
     });
 }
@@ -151,6 +158,7 @@ function addDraft(){
     $("#to").prop('disabled', true);
     $("#message").prop('disabled', true);
     $("#addDraft").html("sending...");
+    $("#addDraft").prop('disabled', true);
     
     $.ajax({
         type: "json",
@@ -169,6 +177,7 @@ function addDraft(){
             $("#to").prop('disabled', false);
             $("#message").prop('disabled', false);
             $("#addDraft").html("Post!");
+            $("#addDraft").prop('disabled', false);
         },
         error: (jqXHR, textStatus, errorThrown ) => {
             notifError("Error to add new draft");
@@ -176,6 +185,7 @@ function addDraft(){
             $("#to").prop('disabled', false);
             $("#message").prop('disabled', false);
             $("#addDraft").html("Post!");
+            $("#addDraft").prop('disabled', false);
         }
     });
 }
@@ -318,6 +328,7 @@ function urlify(text) {
 function getTrends(){
     $("#refresh").attr("class", "glyphicon glyphicon-refresh");
     $("#refresh").attr("id", "refreshing");
+    $("#refreshButton").prop("disabled", true);
     $.ajax({
         type: "json",
         method: "GET",
@@ -327,11 +338,13 @@ function getTrends(){
             data.forEach(item => $("#trendsList").append(`${urlify(esc(item.body))}<br/>`));
             $("#refreshing").attr("class", "glyphicon glyphicon-repeat");
             $("#refreshing").attr("id", "refresh");
+    		$("#refreshButton").prop("disabled", false);
         },
         error: () => {
             notifError("Error to get data");
             $("#refreshing").attr("class", "glyphicon glyphicon-repeat");
             $("#refreshing").attr("id", "refresh");
+    		$("#refreshButton").prop("disabled", false);
         }
     });
 }

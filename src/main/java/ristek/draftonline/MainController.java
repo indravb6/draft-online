@@ -1,4 +1,4 @@
-package ristek.draftonline.controller;
+package ristek.draftonline;
 
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
@@ -15,13 +15,13 @@ import ristek.draftonline.repository.TrendsRepository;
 import java.util.List;
 
 @Controller
-public class HomeController {
+public class MainController {
 
     private SimpMessagingTemplate messagingTemplate;
     private DraftRepository draftRepository;
     private CommentRepository commentRepository;
     private TrendsRepository trendsRepository;
-    public HomeController(DraftRepository draftRepository,
+    public MainController(DraftRepository draftRepository,
                           SimpMessagingTemplate messagingTemplate,
                           CommentRepository commentRepository,
                           TrendsRepository trendsRepository){
