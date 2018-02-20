@@ -8,7 +8,7 @@ import javax.persistence.Id;
 public class Trends {
 
     @Id
-    @Length(min = 1) private String body;
+    @Length(min = 1, max = 30) private String body;
 
     private Integer cnt;
 

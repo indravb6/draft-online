@@ -6,6 +6,6 @@ import ristek.draftonline.model.Trends;
 import java.util.List;
 
 public interface TrendsRepository extends CrudRepository<Trends, Long>{
-    Trends findByBody(String body);
+    Trends findByBodyIgnoreCase(String body);
     List<Trends> findFirst10ByOrderByCntDesc();
 }

@@ -93,7 +93,7 @@ public class MainController {
     }
 
     private void addTrend(String word){
-        Trends trends = trendsRepository.findByBody(word);
+        Trends trends = trendsRepository.findByBodyIgnoreCase(word);
         if(trends == null)
             trendsRepository.save(new Trends(word, 1));
         else{
@@ -107,4 +107,5 @@ public class MainController {
     public List<Trends> getTrends(){
         return trendsRepository.findFirst10ByOrderByCntDesc();
     }
+
 }

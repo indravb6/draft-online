@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/draft-online-local.iml" filepath="$PROJECT_DIR$/.idea/draft-online-local.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/draft-online-local_main.iml" filepath="$PROJECT_DIR$/.idea/modules/draft-online-local_main.iml" group="draft-online-local" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/draft-online-local_test.iml" filepath="$PROJECT_DIR$/.idea/modules/draft-online-local_test.iml" group="draft-online-local" />
+    </modules>
+  </component>
+</project>
